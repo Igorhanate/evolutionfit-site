@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Evolution Fit AI — Site
 
-## Getting Started
+Site institucional (landing de vendas) + **Studio de Métricas** (gerador de cards
+para stories) da Evolution Fit AI.
 
-First, run the development server:
+- **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion (`motion`) · html-to-image.
+- **Rotas:** `/` (landing) e `/studio` (gerador de cards).
+
+## Rodar localmente
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # build de produção
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Studio de Métricas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Gera PNGs 1080×1920 (9:16) **no navegador** — nenhuma foto é enviada a servidor.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **12 stickers** com fundo transparente (para colar sobre a foto nos stories).
+- **6 montagens** com upload de foto (polaroid, tira photo booth, filme, janelas
+  retrô, quadros de filme, colagem). As fotos são reduzidas para ≤1280px no
+  upload, mantendo o export rápido.
+- Adicionar um template novo: criar o componente em
+  `components/studio/templates/` e registrá-lo em
+  `components/studio/templates/registry.ts`.
 
-## Learn More
+## Links de checkout
 
-To learn more about Next.js, take a look at the following resources:
+Centralizados em `config/links.ts`. Hoje todos apontam para a pré-venda Kiwify.
+Quando os planos Trimestral/Anual tiverem checkout próprio, trocar **só ali**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy (Vercel)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Subir o repositório para o GitHub.
+2. Em vercel.com → **Add New → Project** → importar o repositório.
+3. Framework detectado automaticamente (Next.js) → **Deploy**.
+4. Em **Settings → Environment Variables**, definir `NEXT_PUBLIC_SITE_URL` com a
+   URL final (a `*.vercel.app` gerada, ou o domínio próprio) — isso faz o
+   preview de compartilhamento (Open Graph) apontar para a imagem certa.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Cada `git push` na branch principal dispara um novo deploy automático.
