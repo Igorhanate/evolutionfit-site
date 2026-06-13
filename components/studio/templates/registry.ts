@@ -11,6 +11,12 @@ import CodigoBarras from "./CodigoBarras";
 import LetrasCruzadas from "./LetrasCruzadas";
 import MaquinaEscrever from "./MaquinaEscrever";
 import EvolucaoGrafico from "./EvolucaoGrafico";
+import Polaroid from "./Polaroid";
+import TiraPhotoBooth from "./TiraPhotoBooth";
+import FilmeNegativo from "./FilmeNegativo";
+import JanelasRetro from "./JanelasRetro";
+import QuadrosFilme from "./QuadrosFilme";
+import ColagemEtiqueta from "./ColagemEtiqueta";
 
 // Registro central de templates. Adicionar um novo = importar e incluir aqui.
 export const TEMPLATES: TemplateDef[] = [
@@ -26,6 +32,12 @@ export const TEMPLATES: TemplateDef[] = [
   { id: "letras-cruzadas", nome: "Letras cruzadas", tipo: "sticker", fotos: 0, Component: LetrasCruzadas },
   { id: "maquina-escrever", nome: "Máquina de escrever", tipo: "sticker", fotos: 0, Component: MaquinaEscrever },
   { id: "evolucao-grafico", nome: "Evolução com gráfico", tipo: "sticker", fotos: 0, Component: EvolucaoGrafico },
+  { id: "polaroid", nome: "Polaroid", tipo: "montagem", fotos: 1, Component: Polaroid },
+  { id: "tira-photobooth", nome: "Tira photo booth", tipo: "montagem", fotos: 3, Component: TiraPhotoBooth },
+  { id: "filme-negativo", nome: "Filme / negativo", tipo: "montagem", fotos: 1, Component: FilmeNegativo },
+  { id: "janelas-retro", nome: "Janelas retrô", tipo: "montagem", fotos: 2, Component: JanelasRetro },
+  { id: "quadros-filme", nome: "Quadros de filme", tipo: "montagem", fotos: 3, Component: QuadrosFilme },
+  { id: "colagem-etiqueta", nome: "Colagem com etiqueta", tipo: "montagem", fotos: 4, Component: ColagemEtiqueta },
 ];
 
 export const TEMPLATE_PADRAO = TEMPLATES[0].id;
