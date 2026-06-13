@@ -24,9 +24,34 @@ export default function StudioForm({
   fotos,
   setFotos,
 }: Props) {
-  function onFiles(e: React.ChangeEvent<HTMLInputElement>) {
+  // Reduz a foto (máx 1280px) e converte para data URL. Mantém o export leve
+  // e rápido, e o html-to-image embute direto (sem buscar blob/CORS).
+  function reduzir(file: File, max = 1280): Promise<string> {
+    return new Promise((resolve) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        const escala = Math.min(1, max / Math.max(img.width, img.height));
+        const w = Math.round(img.width * escala);
+        const h = Math.round(img.height * escala);
+        const canvas = document.createElement("canvas");
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return resolve(url);
+        ctx.drawImage(img, 0, 0, w, h);
+        URL.revokeObjectURL(url);
+        resolve(canvas.toDataURL("image/jpeg", 0.9));
+      };
+      img.onerror = () => resolve(url);
+      img.src = url;
+    });
+  }
+
+  async function onFiles(e: React.ChangeEvent<HTMLInputElement>) {
     const files = Array.from(e.target.files ?? []).slice(0, numFotos);
-    setFotos(files.map((f) => URL.createObjectURL(f)));
+    const urls = await Promise.all(files.map((f) => reduzir(f)));
+    setFotos(urls);
   }
 
   const campos = CAMPOS_POR_MODALIDADE[modalidade];
