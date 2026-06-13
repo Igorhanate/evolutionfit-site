@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import {
+  Inter,
+  Poppins,
+  Permanent_Marker,
+  Share_Tech_Mono,
+  Playfair_Display,
+  Special_Elite,
+} from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -11,6 +18,27 @@ const poppins = Poppins({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+// Fontes especiais usadas pelos templates do Studio.
+const marker = Permanent_Marker({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-marker",
+});
+const led = Share_Tech_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-led",
+});
+const serifEl = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif-el",
+});
+const typewriter = Special_Elite({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-typewriter",
 });
 
 // Trocar para o domínio final após o deploy (Vercel ou domínio próprio).
@@ -53,7 +81,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${poppins.variable} ${inter.variable} antialiased`}>
+      <body
+        className={`${poppins.variable} ${inter.variable} ${marker.variable} ${led.variable} ${serifEl.variable} ${typewriter.variable} antialiased`}
+      >
         {children}
       </body>
     </html>

@@ -25,6 +25,12 @@ h1, h2, h3, h4 {
   font-family: var(--font-display), sans-serif;
 }
 
+/* Fontes dos templates do Studio */
+.font-marker { font-family: var(--font-marker), cursive; }
+.font-led { font-family: var(--font-led), monospace; }
+.font-serif-el { font-family: var(--font-serif-el), Georgia, serif; }
+.font-typewriter { font-family: var(--font-typewriter), monospace; }
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
