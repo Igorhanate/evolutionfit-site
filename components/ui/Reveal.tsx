@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 type Props = {
   children: React.ReactNode;
@@ -8,6 +8,12 @@ type Props = {
 };
 
 export default function Reveal({ children, delay = 0, className }: Props) {
+  const reduzirMovimento = useReducedMotion();
+  // Acessibilidade: quem prefere menos movimento recebe o conteúdo visível
+  // de imediato, sem depender da animação para aparecer.
+  if (reduzirMovimento) {
+    return <div className={className}>{children}</div>;
+  }
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}

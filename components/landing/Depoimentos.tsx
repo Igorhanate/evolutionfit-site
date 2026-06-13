@@ -19,7 +19,7 @@ export default function Depoimentos() {
   const linha1 = [...DEPOIMENTOS.slice(0, metade), ...DEPOIMENTOS.slice(0, metade)];
   const linha2 = [...DEPOIMENTOS.slice(metade), ...DEPOIMENTOS.slice(metade)];
   return (
-    <section id="depoimentos" className="overflow-hidden bg-white/60 py-20 md:py-28">
+    <section id="depoimentos" className="overflow-hidden bg-evo-light/30 py-20 md:py-28">
       <Reveal>
         <h2 className="text-center font-display text-3xl font-extrabold md:text-4xl">
           Resultados não mentem!

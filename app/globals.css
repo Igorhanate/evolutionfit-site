@@ -12,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* âncoras não ficam escondidas sob a navbar fixa */
 }
 
 body {
@@ -40,4 +41,14 @@ h1, h2, h3, h4 {
 .animate-marquee:hover,
 .animate-marquee-slow:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-marquee-slow {
+    animation: none;
+  }
 }

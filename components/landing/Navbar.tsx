@@ -20,11 +20,12 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" aria-label="Evolution Fit — início">
           <Image
-            src="/logos/logo-horizontal.png"
+            src="/logos/logo-wordmark.png"
             alt="Evolution Fit"
-            width={160}
-            height={36}
+            width={163}
+            height={40}
             priority
+            className="h-8 w-auto md:h-9"
           />
         </Link>
         <div className="hidden items-center gap-6 md:flex">

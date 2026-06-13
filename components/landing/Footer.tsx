@@ -21,11 +21,11 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-white/50 md:flex-row">
           <Image
-            src="/logos/logo-horizontal.png"
+            src="/logos/logo-wordmark-white.png"
             alt="Evolution Fit"
             width={130}
-            height={30}
-            className="brightness-0 invert"
+            height={32}
+            className="h-7 w-auto"
           />
           <div className="flex gap-6">
             <Link href="/studio" className="hover:text-white">

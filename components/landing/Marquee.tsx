@@ -1,16 +1,16 @@
 import Image from "next/image";
 
-const ILUSTRACOES = [
-  "corredor.png",
-  "yoga.png",
-  "boxe-dia.png",
-  "idosos.png",
-  "garmin.png",
-  "avaliacao-corporal.png",
-  "analise-alimentos.png",
-  "boxe-noite.png",
-  "dieta-online.png",
-  "compartilhe-evolucao.png",
+// Dimensões reais de cada arte — usadas para manter a proporção (sem cortar).
+const ILUSTRACOES: { src: string; w: number; h: number }[] = [
+  { src: "corredor.png", w: 2130, h: 1984 },
+  { src: "yoga.png", w: 2130, h: 1984 },
+  { src: "boxe-dia.png", w: 2816, h: 1536 },
+  { src: "idosos.png", w: 2130, h: 1984 },
+  { src: "garmin.png", w: 2130, h: 1984 },
+  { src: "avaliacao-corporal.png", w: 2132, h: 1984 },
+  { src: "dieta-online.png", w: 2378, h: 1792 },
+  { src: "boxe-noite.png", w: 1536, h: 1024 },
+  { src: "compartilhe-evolucao.png", w: 1884, h: 2272 },
 ];
 
 export default function Marquee() {
@@ -18,18 +18,18 @@ export default function Marquee() {
   const itens = [...ILUSTRACOES, ...ILUSTRACOES];
   return (
     <div className="relative overflow-hidden py-6" aria-hidden>
-      <div className="animate-marquee flex w-max gap-8">
+      <div className="animate-marquee flex w-max items-center gap-6">
         {itens.map((img, i) => (
           <div
             key={i}
-            className="h-44 w-44 shrink-0 overflow-hidden rounded-2xl bg-white shadow-sm md:h-56 md:w-56"
+            className="flex h-44 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white p-3 shadow-sm ring-1 ring-ink/5 md:h-56"
           >
             <Image
-              src={`/illustrations/${img}`}
+              src={`/illustrations/${img.src}`}
               alt=""
-              width={224}
-              height={224}
-              className="h-full w-full object-cover"
+              width={img.w}
+              height={img.h}
+              className="h-full w-auto object-contain"
             />
           </div>
         ))}

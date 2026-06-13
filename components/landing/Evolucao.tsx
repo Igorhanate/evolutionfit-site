@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import Reveal from "@/components/ui/Reveal";
 import { EVOLUCAO } from "@/config/content";
 
@@ -8,6 +8,23 @@ const COM_EVOLUTION = "M 40 260 C 160 240, 240 170, 340 120 S 520 50, 560 40";
 const SEM_EVOLUTION = "M 40 260 C 180 250, 300 235, 420 225 S 530 215, 560 212";
 
 export default function Evolucao() {
+  const reduzirMovimento = useReducedMotion();
+  // Sem movimento: linhas já desenhadas (pathLength padrão = cheio) e ponto visível.
+  const traco = reduzirMovimento
+    ? {}
+    : {
+        initial: { pathLength: 0 },
+        whileInView: { pathLength: 1 },
+        viewport: { once: true, margin: "-20%" },
+      };
+  const ponto = reduzirMovimento
+    ? {}
+    : {
+        initial: { opacity: 0, scale: 0 },
+        whileInView: { opacity: 1, scale: 1 },
+        viewport: { once: true, margin: "-20%" },
+        transition: { delay: 2.0, duration: 0.3 },
+      };
   return (
     <section id="evolucao" className="mx-auto max-w-6xl px-4 py-20 md:py-28">
       <Reveal>
@@ -34,9 +51,7 @@ export default function Evolucao() {
               strokeWidth="4"
               strokeLinecap="round"
               strokeDasharray="8 8"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true, margin: "-20%" }}
+              {...traco}
               transition={{ duration: 1.4, ease: "easeInOut" }}
             />
             <motion.path
@@ -45,18 +60,10 @@ export default function Evolucao() {
               stroke="#1b7a3d"
               strokeWidth="5"
               strokeLinecap="round"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true, margin: "-20%" }}
+              {...traco}
               transition={{ duration: 1.8, ease: "easeInOut", delay: 0.2 }}
             />
-            <motion.circle
-              cx="560" cy="40" r="7" fill="#1b7a3d"
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-20%" }}
-              transition={{ delay: 2.0, duration: 0.3 }}
-            />
+            <motion.circle cx="560" cy="40" r="7" fill="#1b7a3d" {...ponto} />
           </svg>
           <div className="mt-2 flex justify-between px-2 text-xs text-ink/50 md:text-sm">
             {EVOLUCAO.semanas.map((s) => (

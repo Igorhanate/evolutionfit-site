@@ -13,10 +13,39 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+// Trocar para o domínio final após o deploy (Vercel ou domínio próprio).
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://evolutionfit-site.vercel.app";
+
+const titulo = "Evolution Fit AI — A primeira IA de gestão fitness";
+const descricao =
+  "Treinos personalizados, análise de refeições por foto e acompanhamento de evolução. Tudo direto no WhatsApp, 24h por dia. Sem baixar app.";
+
 export const metadata: Metadata = {
-  title: "Evolution Fit AI — A primeira IA de gestão fitness",
-  description:
-    "Treinos personalizados, análise de refeições por foto e acompanhamento de evolução. Tudo direto no WhatsApp, 24h por dia. Sem baixar app.",
+  metadataBase: new URL(siteUrl),
+  title: titulo,
+  description: descricao,
+  icons: {
+    icon: "/icon-512.png",
+    apple: "/apple-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: siteUrl,
+    siteName: "Evolution Fit AI",
+    title: titulo,
+    description: descricao,
+    images: [
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Evolution Fit AI" },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: titulo,
+    description: descricao,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
