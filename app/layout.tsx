@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   Inter,
   Poppins,
+  Anton,
   Permanent_Marker,
   Share_Tech_Mono,
   Playfair_Display,
@@ -18,6 +19,13 @@ const poppins = Poppins({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+// Fonte condensada ultra-bold dos títulos (igual ao Canva).
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-anton",
 });
 
 // Fontes especiais usadas pelos templates do Studio.
@@ -82,7 +90,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${poppins.variable} ${inter.variable} ${marker.variable} ${led.variable} ${serifEl.variable} ${typewriter.variable} antialiased`}
+        className={`${poppins.variable} ${inter.variable} ${anton.variable} ${marker.variable} ${led.variable} ${serifEl.variable} ${typewriter.variable} antialiased`}
       >
         {children}
       </body>

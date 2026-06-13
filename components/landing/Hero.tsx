@@ -1,40 +1,52 @@
+import Image from "next/image";
 import CTAButton from "@/components/ui/CTAButton";
 import Reveal from "@/components/ui/Reveal";
-import Marquee from "@/components/landing/Marquee";
 import { HERO } from "@/config/content";
 import { CHECKOUT_VIP } from "@/config/links";
 
 export default function Hero() {
   return (
     <section className="pt-10 md:pt-16">
-      <div className="mx-auto max-w-4xl px-4 text-center">
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 md:grid-cols-2">
         <Reveal>
-          <span className="mb-5 inline-block rounded-full border border-evo/30 bg-evo-light px-4 py-1.5 text-sm font-semibold text-evo">
-            Pré-venda · apenas 50 vagas
-          </span>
+          <div>
+            <h1 className="font-anton text-5xl uppercase text-ink sm:text-6xl md:text-7xl">
+              A primeira IA de
+              <br />
+              gestão <span className="text-evo">fitness</span>
+            </h1>
+            <p className="mt-6 font-display text-sm font-bold uppercase tracking-wide text-ink/70">
+              {HERO.subtitulo}
+            </p>
+            <CTAButton href={CHECKOUT_VIP} className="mt-7">
+              {HERO.cta}
+            </CTAButton>
+          </div>
         </Reveal>
-        <Reveal delay={0.1}>
-          <h1 className="font-display text-4xl font-extrabold leading-tight md:text-6xl">
-            {HERO.titulo}
-          </h1>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-ink/70 md:text-xl">
-            {HERO.subtitulo}
-          </p>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <CTAButton href={CHECKOUT_VIP} className="mt-8">
-            {HERO.cta}
-          </CTAButton>
-          <p className="mt-4 text-sm text-ink/50">
-            Sem baixar app · Disponível 24h · Cancele quando quiser
-          </p>
+        <Reveal delay={0.15}>
+          <Image
+            src="/canva/hero.png"
+            alt="Evo — seu personal e nutricionista no WhatsApp"
+            width={1423}
+            height={1645}
+            priority
+            className="mx-auto h-auto w-full max-w-md"
+          />
         </Reveal>
       </div>
-      <Reveal delay={0.4}>
-        <div className="mt-12">
-          <Marquee />
+
+      <Reveal>
+        <div className="mx-auto mt-6 max-w-5xl px-4 text-center">
+          <h2 className="font-anton text-4xl uppercase leading-tight text-ink sm:text-5xl md:text-6xl">
+            Tudo que você precisa
+            <br className="hidden sm:block" /> direto no{" "}
+            <span className="text-evo">WhatsApp</span>
+          </h2>
+          <div className="mt-5 flex flex-wrap justify-center gap-x-8 gap-y-1 font-display text-xs font-bold uppercase tracking-wide text-ink/60 sm:text-sm">
+            {HERO.bandLabels.map((l) => (
+              <span key={l}>{l}</span>
+            ))}
+          </div>
         </div>
       </Reveal>
     </section>

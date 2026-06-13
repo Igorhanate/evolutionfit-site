@@ -1,8 +1,38 @@
 export const HERO = {
   titulo: "A primeira IA de gestão fitness",
-  subtitulo:
-    "Tudo que você precisa, direto no WhatsApp — baseado no seu tempo e orçamento. Todas as modalidades, para todas as idades, em todos os lugares.",
-  cta: "QUERO ASSINAR",
+  subtitulo: "Tudo baseado no seu tempo e orçamento",
+  cta: "VER PLANOS",
+  bandTitulo: "Tudo que você precisa direto no WhatsApp",
+  bandLabels: ["Para todas as idades", "Todos os lugares", "Todas modalidades"],
+};
+
+// Cards de ilustração logo abaixo do hero.
+export const CARDS_TOPO = ["card-idosos.png", "card-yoga.png", "card-corredor.png"];
+
+// Cards de recurso com barra preta + seta (6).
+export const FEATURES_CARDS = [
+  { img: "feat-corporal.png", label: "Avaliação corporal" },
+  { img: "feat-refeicoes.png", label: "Análise de refeições" },
+  { img: "feat-garmin.png", label: "Conexão com Garmin" },
+  { img: "feat-compartilhe.png", label: "Compartilhe sua evolução" },
+  { img: "feat-suplementos.png", label: "Lembrete de suplementos e remédios" },
+  { img: "feat-calorias.png", label: "Gaste mais calorias" },
+] as const;
+
+// Fotos reais (prova social).
+export const FOTOS_REAIS = ["foto1.png", "foto2.png", "foto3.png", "foto4.png"];
+
+export const VIP = {
+  titulo: "Participe do plano VIP",
+  selo: "Liberamos apenas 50 vagas de pré-venda",
+  cta: "Assinar",
+};
+
+export const FECHAMENTO = {
+  titulo: "Nos vemos lá!",
+  preco: "Valor promocional de R$ 9,99/mês.",
+  sub: "Sem baixar app. Disponível 24h. Cancele quando quiser.",
+  cta: "Quero assinar",
 };
 
 export const FEATURES = [

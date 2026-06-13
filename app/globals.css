@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-evo: #1b7a3d;
-  --color-evo-dark: #14592d;
-  --color-evo-light: #e8f4ec;
-  --color-ink: #171f1a;
-  --color-paper: #fafaf8;
+  --color-evo: #1f9a49;
+  --color-evo-dark: #16813b;
+  --color-evo-deep: #0b7038;
+  --color-evo-light: #e7f6ec;
+  --color-ink: #111111;
+  --color-paper: #ffffff;
   --font-display: var(--font-poppins);
+  --font-anton: var(--font-anton);
   --font-body: var(--font-inter);
 }
 
@@ -23,6 +25,14 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-display), sans-serif;
+}
+
+/* Títulos da landing — condensada ultra-bold estilo Canva */
+.font-anton {
+  font-family: var(--font-anton), "Arial Narrow", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
 }
 
 /* Fontes dos templates do Studio */

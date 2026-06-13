@@ -14,11 +14,11 @@ export default function CTAButton({
   className = "",
 }: Props) {
   const base =
-    "inline-block rounded-xl px-7 py-3.5 font-display font-bold text-base tracking-wide transition-all duration-200";
+    "inline-block rounded-full border-2 px-9 py-3.5 font-display text-base font-extrabold uppercase tracking-wide transition-all duration-200";
   const styles =
     variant === "primary"
-      ? "bg-evo text-white shadow-lg shadow-evo/25 hover:bg-evo-dark hover:shadow-xl hover:-translate-y-0.5"
-      : "border-2 border-evo text-evo hover:bg-evo-light hover:-translate-y-0.5";
+      ? "border-ink bg-evo text-white shadow-md hover:bg-evo-dark hover:-translate-y-0.5"
+      : "border-ink bg-white text-ink hover:bg-evo-light hover:-translate-y-0.5";
   return (
     <Link
       href={href}

@@ -1,10 +1,13 @@
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
-import Features from "@/components/landing/Features";
-import FuroDieta from "@/components/landing/FuroDieta";
-import Evolucao from "@/components/landing/Evolucao";
+import CardsTopo from "@/components/landing/CardsTopo";
+import PlanoVip from "@/components/landing/PlanoVip";
 import Depoimentos from "@/components/landing/Depoimentos";
-import Planos from "@/components/landing/Planos";
+import FuroDieta from "@/components/landing/FuroDieta";
+import FeaturesCards from "@/components/landing/FeaturesCards";
+import Evolucao from "@/components/landing/Evolucao";
+import AvaliacoesClientes from "@/components/landing/AvaliacoesClientes";
+import NosVemosLa from "@/components/landing/NosVemosLa";
 import Footer from "@/components/landing/Footer";
 
 export default function Home() {
@@ -13,11 +16,14 @@ export default function Home() {
       <Navbar />
       <div className="pt-16" />
       <Hero />
-      <Features />
-      <FuroDieta />
-      <Evolucao />
+      <CardsTopo />
+      <PlanoVip />
       <Depoimentos />
-      <Planos />
+      <FuroDieta />
+      <FeaturesCards />
+      <Evolucao />
+      <AvaliacoesClientes />
+      <NosVemosLa />
       <Footer />
     </main>
   );
